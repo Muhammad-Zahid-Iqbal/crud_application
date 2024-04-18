@@ -14,6 +14,7 @@ import Slide from "@mui/material/Slide";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Modal from "@mui/material/Modal";
 import CloseIcon from '@mui/icons-material/Close';
+import { deleteUserData } from "../../backendServices/apiCalls";
 
 const style = {
   position: "absolute",
@@ -51,9 +52,7 @@ const Read = () => {
   const handleDelete = async () => {
     if (selectedUserId) {
       try {
-        await axios.delete(
-          `https://6620886e3bf790e070afed2d.mockapi.io/crud/${selectedUserId}`
-        );
+        await deleteUserData(selectedUserId);
         GetData(); // Refresh data after successful deletion
         setOpen(false); // Close the dialog
       } catch (error) {
