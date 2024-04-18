@@ -1,10 +1,18 @@
+import { Route, Routes } from "react-router-dom";
+import Create from "./components/create/Create";
+import Read from "./components/read/Read";
 
 function App() {
 
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={<Create/>}></Route>
+      <Route path="/read" element={<Read/>}></Route>
+    </Routes>
+     
+     
+    </>
   );
 }
 
